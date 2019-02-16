@@ -52,7 +52,7 @@ Task("Build")
   .IsDependentOn("Restore")
   .Does(() =>
 {
-  DotNetCoreBuild(".",
+  DotNetCoreBuild("./Datadog.Trace.sln",
     new DotNetCoreBuildSettings()
        {
            Configuration = configuration,
