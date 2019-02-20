@@ -55,14 +55,21 @@ SET DD_PROFILER_PROCESSES=w3wp.exe;iisexpress.exe;Samples.AspNetCoreMvc2.exe;dot
 rem Set location of integration definitions
 SET DD_INTEGRATIONS=%~dp0\integrations.json;%~dp0\test-integrations.json
 
+
+
 if "%start_visual_studio%" == "true" (
     echo Starting Visual Studio...
-    IF EXIST "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Professional\Common7\IDE\devenv.exe" (
-    START "Visual Studio" "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Professional\Common7\IDE\devenv.exe" "%~dp0\Datadog.Trace.sln"
+    IF EXIST "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe" (
+    START "Visual Studio" "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe" "%~dp0\Datadog.Trace.sln"
     ) ELSE (
     START "Visual Studio" "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe" "%~dp0\Datadog.Trace.sln"
     )
 )
+
+
+
+START %~dp0\samples\Samples.AspNetCoreMvc2\bin\x86\Debug\net461\win-x86\Samples.AspNetCoreMvc2.exe
+
 goto end
 
 :show_usage
